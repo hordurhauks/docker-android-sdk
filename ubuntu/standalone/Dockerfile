@@ -30,7 +30,19 @@ RUN dpkg --add-architecture i386 && apt-get update -yqq && apt-get install -y \
   locales \
   nodejs \
   npm \
+  build-essential \
+  ruby-full \
   && apt-get clean
+
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
+     apt-get install -y nodejs && \
+     npm install && \
+     npm install -g firebase-tools
+
+# Installing fastlane
+RUN gem install fastlane && \
+     gem install bundle && \
+     gem install fastlane-plugin-firebase_app_distribution
 
 RUN  rm -rf /var/lib/apt/lists/* && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 
