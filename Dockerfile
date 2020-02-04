@@ -1,7 +1,5 @@
 FROM ubuntu:18.04
 
-LABEL de.mindrunner.android-docker.flavour="ubuntu-standalone"
-
 ENV ANDROID_SDK_HOME /opt/android-sdk-linux
 ENV ANDROID_SDK_ROOT /opt/android-sdk-linux
 ENV ANDROID_HOME /opt/android-sdk-linux
@@ -46,6 +44,8 @@ RUN gem update --system
 RUN gem install fastlane && \
      gem install bundle && \
      gem install fastlane-plugin-firebase_app_distribution
+
+RUN wget https://services.gradle.org/distributions/gradle-5.6.3-bin.zip && mkdir /opt/gradle && unzip -d /opt/gradle gradle-5.6.3-bin.zip && export PATH=$PATH:/opt/gradle/gradle-5.6.3/bin # Install gradle
 
 RUN  rm -rf /var/lib/apt/lists/* && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 
