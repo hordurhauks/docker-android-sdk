@@ -43,6 +43,7 @@ RUN gem update --system
 # Installing fastlane
 RUN gem install fastlane && \
      gem install bundle && \
+     gem install bundler && \
      gem install fastlane-plugin-firebase_app_distribution
 
 RUN wget https://services.gradle.org/distributions/gradle-5.6.3-bin.zip && mkdir /opt/gradle && unzip -d /opt/gradle gradle-5.6.3-bin.zip && export PATH=$PATH:/opt/gradle/gradle-5.6.3/bin # Install gradle
