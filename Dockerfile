@@ -37,6 +37,9 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
      npm install && \
      npm install -g firebase-tools
 
+# Update ruby gems or else bundle gets messed up
+RUN gem update --system
+
 # Installing fastlane
 RUN gem install fastlane && \
      gem install bundler && \
