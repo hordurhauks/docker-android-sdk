@@ -12,7 +12,7 @@ then
     echo "SDK Tools already bootstrapped. Skipping initial setup"
 else
     echo "Bootstrapping SDK-Tools"
-    wget -q https://dl.google.com/android/repository/commandlinetools-linux-6200805_latest.zip -O sdk-tools-linux.zip \
+    wget -q https://dl.google.com/android/repository/commandlinetools-linux-6609375_latest.zip -O sdk-tools-linux.zip \
       && unzip sdk-tools-linux.zip \
       && touch .bootstrapped \
       && rm sdk-tools-linux.zip
